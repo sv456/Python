@@ -3,15 +3,15 @@ try:
     hrs=int(data)
 except:
     print 'please enter number'
-    
-
+    exit()
 
 data=raw_input('enter rate:')
-if isinstance(data,float):
-    rate=data
-else:
+try:
+    rate=float(data)
+except:
     print 'enter properly'
     exit()
+
 if hrs<=40:
     print 'pay:',hrs*rate
 else:
