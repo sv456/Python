@@ -11,8 +11,10 @@ try:
 except:
     print 'enter properly'
     exit()
+def cal_pay(h,r):
+    if h<=40:
+         print 'pay:',h*r
+    else:
+        print 'pay:',1.5*h*r
 
-if hrs<=40:
-    print 'pay:',hrs*rate
-else:
-    print 'pay:',1.5*hrs*rate
+cal_pay(hrs,rate)
