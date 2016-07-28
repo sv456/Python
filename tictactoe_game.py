@@ -11,6 +11,9 @@ turn='X'
 for i in range(9):
     print 'it\'s '+turn+'\'s turn'
     choice=raw_input('enter ur choice:')
+    if choice not in tictac.keys():
+            print 'wrong choice enter again'
+            continue
     tictac[choice]=turn
     if turn=='X':
         turn='O'
@@ -24,6 +27,9 @@ for i in range(9):
         break
     board(tictac)
 
+print ' '
+print 'this is the final layout'
+board(tictac)
 
-if tictac['top-L']!=tictac['top-M']!=tictac['top-R'] and tictac['mid-L']!=tictac['mid-M']!=tictac['mid-R'] and tictac['low-L']!=tictac['low-M']!=tictac['low-R']:
+if tictac['top-L']!=tictac['top-M']!=tictac['top-R'] and tictac['mid-L']!=tictac['mid-M']!=tictac['mid-R'] and tictac['low-L']!=tictac['low-M']!=tictac['low-R'] and tictac['top-L']!=tictac['mid-L']!=tictac['low-L'] and tictac['top-M']!=tictac['mid-M']!=tictac['low-M'] and tictac['right-R']!=tictac['mid-R']!=tictac['low_r']:
     print 'it\'s a draw'
