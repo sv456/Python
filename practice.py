@@ -1,5 +1,5 @@
-name=raw_input('Hello Ur name?')
-print 'it\'s good to meet you ' + name
-print 'length of ur name:',len(name)
-age=raw_input('enter ur age?')
-print 'ur age in a year:',(int(age)+1)
+def fun(stuff):
+    words=stuff.split(',')
+    return stuff.pop(1)
+m=fun('yo How r you')
+print m

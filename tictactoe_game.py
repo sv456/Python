@@ -8,6 +8,7 @@ def board(b):
 
 board(tictac)
 turn='X'
+n=1
 for i in range(9):
     print 'it\'s '+turn+'\'s turn'
     choice=raw_input('enter ur choice:')
@@ -21,9 +22,11 @@ for i in range(9):
         turn='X'
     if tictac['top-L']==tictac['top-M']==tictac['top-R']=='X' or tictac['mid-L']==tictac['mid-M']==tictac['mid-R']=='X' or tictac['low-L']==tictac['low-M']==tictac['low-R']=='X' or tictac['mid-M']==tictac['top-M']==tictac['low-M']=='X' or tictac['top-L']==tictac['mid-L']==tictac['low-L']=='X' or tictac['top-R']==tictac['mid-R']==tictac['low-R']=='X' or tictac['top-L']==tictac['mid-M']==tictac['low-R']=='X' or tictac['top-R']==tictac['mid-M']==tictac['low-L']=='X':
         print 'X won'
+        n=0
         break
     elif tictac['top-L']==tictac['top-M']==tictac['top-R']=='O' or tictac['mid-L']==tictac['mid-M']==tictac['mid-R']=='O' or tictac['low-L']==tictac['low-M']==tictac['low-R']=='O' or tictac['mid-M']==tictac['top-M']==tictac['low-M']=='O' or tictac['top-L']==tictac['mid-L']==tictac['low-L']=='O' or tictac['top-R']==tictac['mid-R']==tictac['low-R']=='O' or tictac['top-L']==tictac['mid-M']==tictac['low-R']=='O' or tictac['top-R']==tictac['mid-M']==tictac['low-L']=='O':
         print 'O won'
+        n=0
         break
     board(tictac)
 
@@ -31,5 +34,5 @@ print ' '
 print 'this is the final layout'
 board(tictac)
 
-if tictac['top-L']!=tictac['top-M']!=tictac['top-R'] and tictac['mid-L']!=tictac['mid-M']!=tictac['mid-R'] and tictac['low-L']!=tictac['low-M']!=tictac['low-R'] and tictac['top-L']!=tictac['mid-L']!=tictac['low-L'] and tictac['top-M']!=tictac['mid-M']!=tictac['low-M'] and tictac['right-R']!=tictac['mid-R']!=tictac['low_r']:
+if n==1:
     print 'it\'s a draw'
