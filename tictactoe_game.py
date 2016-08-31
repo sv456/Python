@@ -15,7 +15,11 @@ for i in range(9):
     if choice not in tictac.keys():
             print 'wrong choice enter again'
             continue
-    tictac[choice]=turn
+    if tictac[choice]==' ':
+            tictac[choice]=turn
+    else:
+            print "don't cheat"
+            continue
     if turn=='X':
         turn='O'
     else:
