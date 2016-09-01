@@ -1,29 +1,23 @@
-def break_words(stuff):
-	words=stuff.split(' ')
-	return words
-	
-def sort_words(words):
-	return sorted(words)
-	
-def print_first_word(words):
-	word = words.pop(0)
-	print word
-	
-def print_last_word(words):
-	word=words.pop(-1)
-	print word
-	
-def sort_sentence(sentence):
-	words=break_words(sentence)
-	return sort_words(words)
-	
-def print_first_last(sentence):
-	words=break_words(sentence)
-	print_first_word(words)
-	print_last_word(words)
+def cric_world():
+	print "which one u like btting or bowling"
+	b=raw_input("enter here:")
+	if b=="batting":
+		print "great choice"
+	else:
+		print "good for u"
 		
-def print_first_last_sorted(sentence):
-	words=sort_sentence(sentence)
-	print_first_word(words)
-	print_last_word(words)
-	
+def foot_world():
+	print "I don't think we will get along well"
+
+
+def choose_game():
+	print "which one u like 1.cricet 2.football"
+	choice=raw_input("enter ur choice:")
+	if "cricket" in choice:
+		cric_world()
+	elif "football" in choice:
+		foot_world()
+	else:
+		print "i think u didn't understand the choices"
+		
+choose_game()
