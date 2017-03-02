@@ -236,7 +236,7 @@ for i in range(9):
             if j=='Prod':
                 actual_env='11668'
                 start=datet+'T09:30:00.000-0700'
-                end=datet+'T10:30:00.000-0530'
+                end=datet+'T10:30:00.000-0700'
                 assign_values(actual_DC,Ztime,actual_env,j,data,start,end,patch_prod)
             elif j=='Sales':
                 actual_env='11930'
@@ -347,7 +347,7 @@ for i in range(9):
                 actual_env='11668'
                 start=datet+'T11:30:00.000-0700'
                 end=datet+'T12:30:00.000-0700'
-                assign_values(actual_DC,Ztime,actual_env,j,data,start,end)
+                assign_values(actual_DC,Ztime,actual_env,j,data,start,end,patch_prod)
            elif j=='Sales':
                 actual_env='11930'
                 assign_values(actual_DC,Ztime,actual_env,j,data)
@@ -364,7 +364,7 @@ for i in range(9):
                 actual_env='11668'
                 start=datet+'T12:30:00.000-0700'
                 end=datet+'T13:30:30.000-0700'
-                assign_values(actual_DC,Ztime,actual_env,j,data,start,end)
+                assign_values(actual_DC,Ztime,actual_env,j,data,start,end,patch_prod)
             elif j=='Sales':
                 actual_env='11930'
                 assign_values(actual_DC,Ztime,actual_env,j,data)
