@@ -40,6 +40,46 @@ class LinkedList():
         currx.next=curry.next
         curry.next=tmp
 
+    def create_resultant_ll(self,list1,list2):
+        if list1==None and list2==None:
+            return 0
+        lst=list()
+        n1=0
+        su1=0
+        while(list1 is not None):
+            su1+=(list1.data)*(10**n1)
+            list1=list1.next
+            n1+=1
+            
+        n2=0
+        su2=0
+        while(list2 is not None):
+            su2+=(list2.data)*(10**n2)
+            list2=list2.next
+            n2+=1
+
+        su=su1+su2
+        num=su
+        cnt=0
+        while(num>0):
+            n=num%10
+            lst.append(n)
+            num=num/10
+            cnt+=1
+        i=0
+        while(i<cnt):
+            new_node=Node(lst[i])
+            if(self.head==None):
+                self.head=new_node
+                self.last=new_node
+
+            else:
+                self.last.next=new_node
+                self.last=new_node
+            i+=1
+            
+            
+
     def add_node(self):
         while(True):
             n=int(raw_input('1.For data entry \n2.Exit\n'))
@@ -55,8 +95,9 @@ class LinkedList():
                     self.last=new_node
             else:
                 break
-        
 
+        
+            
     #print list in reverse in group
     def reverse_pos(self,head,pos):
         cur=head
@@ -216,8 +257,14 @@ class LinkedList():
 
 
 if __name__=='__main__':
+    ll1=LinkedList()
+    ll1.add_node()
+    ll1.printList()
+    ll2=LinkedList()
+    ll2.add_node()
+    ll2.printList()
     ll=LinkedList()
-    ll.add_node()
+    ll.create_resultant_ll(ll1.head,ll2.head)
     ll.printList()
     print 'no. of nodes',ll.node_cnt()
     print '\n'
@@ -252,6 +299,8 @@ if __name__=='__main__':
     ll.printList()
     print '\n'
     print ll.detect_loop()
+    
+    
     
     
     
