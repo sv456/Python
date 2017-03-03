@@ -40,6 +40,70 @@ class LinkedList():
         currx.next=curry.next
         curry.next=tmp
 
+    def add_node(self):
+        while(True):
+            n=int(raw_input('1.For data entry \n2.Exit\n'))
+            if n==1:
+                d=int(raw_input('enter the data for node:'))
+                new_node=Node(d)
+                if(self.head==None):
+                    self.head=new_node
+                    self.last=new_node
+
+                else:
+                    self.last.next=new_node
+                    self.last=new_node
+            else:
+                break
+        
+
+    #print list in reverse in group
+    def reverse_pos(self,head,pos):
+        cur=head
+        prev=None
+        nxt=None
+        cnt=0
+        while(cur is not None and cnt<pos):
+            nxt=cur.next
+            cur.next=prev
+            prev=cur
+            cur=nxt
+        if nxt is not None:
+            head.next=rerverse_pos(nxt,pos)
+
+        return prev
+
+    
+    #detect and remove loop in linked list
+    def remove_loop(self,loop_node):
+        ptr1=ptr2=loop_node
+        k=1
+        while(ptr1.next!=ptr2):
+            ptr1=ptr1.next
+            k+=1
+        ptr1.nxt=ptr2.nxt=self.head
+        for i in range(k):
+            ptr2=ptr2.next
+
+        while(ptr1!=ptr2):
+            ptr1=ptr1.next
+            ptr2=ptr2.next
+
+        while(ptr2.next!=ptr1):
+            ptr2=ptr2.next
+
+        ptr2.next=None
+            
+        
+    def detect_loop(self):
+        slow_p=fast_p=self.head
+        while(slow_p and fast_p and fast_p.next):
+            slow_p=slow_p.next
+            fast_p=fast_p.next.next
+            if fast_p==slow_p:
+                remove_loop(slow_p)
+                return 1
+        return 0
         
     #reversing a linked list
     def reverse_rec(self,cur,prev):
@@ -140,7 +204,7 @@ class LinkedList():
             tmp=tmp.next
         return cnt
 
-#recursive way of finding a node based on the data
+    #recursive way of finding a node based on the data
     def search(self,node,data):
         if node.data!=data:
             self.search(node.next,data)
@@ -153,11 +217,7 @@ class LinkedList():
 
 if __name__=='__main__':
     ll=LinkedList()
-    ll.head=Node(25)
-    second=Node(10)
-    third=Node(48)
-    ll.head.next=second
-    second.next=third
+    ll.add_node()
     ll.printList()
     print 'no. of nodes',ll.node_cnt()
     print '\n'
@@ -187,6 +247,11 @@ if __name__=='__main__':
     print '\n'
     ll.reverse()
     ll.printList()
+    print '\n'
+    ll.head=ll.reverse_pos(ll.head,2)
+    ll.printList()
+    print '\n'
+    print ll.detect_loop()
     
     
     
