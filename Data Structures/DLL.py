@@ -9,6 +9,7 @@ class DLL():
         self.head=None
         self.last=None
 
+    #Adding new node
     def add_node(self):
         while True:
             ch=int(raw_input('1.Data entry\n2.Exit\n'))
@@ -24,6 +25,7 @@ class DLL():
             else:
                 break
 
+    #traversing through linkedlist
     def traverse(self):
         if self.head is None:
             return
@@ -40,12 +42,14 @@ class DLL():
                 print 'exiting'
                 break
 
+    #print data in all nodes
     def printList(self):
         tmp=self.head
         while(tmp):
             print tmp.data
             tmp=tmp.next
 
+    #adding node at as first
     def add_at_first(self,data):
         if self.head is None:
             return
@@ -54,6 +58,7 @@ class DLL():
         self.head.prev=new_node
         self.head=new_node
 
+    #adding node after a particular node
     def insert_after(self,ref,data):
         if ref is None:
             print 'prev node cannot be NULL'
@@ -64,6 +69,7 @@ class DLL():
         ref.next.prev=new_node
         ref.next=new_node
 
+    #adding a node at the end
     def push(self,data):
         if self.head is None:
             return
@@ -72,6 +78,7 @@ class DLL():
         new_node.prev=self.last
         self.last=new_node
 
+    #adding a node before a particular node
     def insert_before(self,ref,data):
         if self.head is None:
             return
@@ -80,6 +87,15 @@ class DLL():
         new_node.prev=ref.prev
         ref.prev.next=new_node
         ref.prev=new_node
+
+    #deleting head node
+    def del_head_node(self):
+        if self.head is None:
+            return
+        tmp=self.head
+        self.head=tmp.next
+        self.head.prev=None
+        tmp=None
         
 
 if __name__=='__main__':
