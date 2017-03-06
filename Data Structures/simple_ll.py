@@ -7,6 +7,30 @@ class LinkedList():
     def __init__(self):
         self.head=None
 
+        
+    #rotating linked list
+    def rotate_ll(self,num):
+        tmp=self.head
+        if tmp is None:
+            return
+        cnt=1
+        while(cnt<=num-1 and tmp.next):
+            tmp=tmp.next
+            cnt+=1
+        if tmp.next is not None:
+            nxt=pt=tmp.next
+            chk=1
+        else:
+            return
+        
+        while(nxt.next):
+            nxt=nxt.next
+            
+        tmp.next=None
+        nxt.next=self.head
+        self.head=pt
+        
+
     #swapping of nodes
     def swap_nodes(self,x,y):
         if x==y:
@@ -299,6 +323,9 @@ if __name__=='__main__':
     ll.printList()
     print '\n'
     print ll.detect_loop()
+    print '\n'
+    ll.rotate_ll(4)
+    ll.printList()
     
     
     
