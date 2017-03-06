@@ -96,6 +96,32 @@ class DLL():
         self.head=tmp.next
         self.head.prev=None
         tmp=None
+
+   #deleting middle node 
+    def del_mid_node(self):
+        if self.head is None:
+            return
+        slow_p=self.head
+        fast_p=self.head
+        while(fast_p is not None):
+            slow_p=slow_p.next
+            fast_p=fast_p.next.next
+        tmp=slow_p
+        tmp.prev.next=tmp.next
+        tmp.next.prev=tmp.prev
+        tmp=None
+
+    #delete last node
+    def del_last_node(self):
+        if self.head is None:
+            return
+        tmp=self.last
+        tmp.prev.next=None
+        self.last=tmp.prev
+        tmp.prev=None
+        tmp=None
+    
+        
         
 
 if __name__=='__main__':
@@ -115,6 +141,15 @@ if __name__=='__main__':
     ll.printList()
     print ' '
     ll.push(70)
+    ll.printList()
+    print ' '
+    ll.del_head_node()
+    ll.printList()
+    print ' '
+    ll.del_mid_node()
+    ll.printList()
+    print ' '
+    ll.del_last_node()
     ll.printList()
     print ' '
     
