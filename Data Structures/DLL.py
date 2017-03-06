@@ -120,8 +120,25 @@ class DLL():
         self.last=tmp.prev
         tmp.prev=None
         tmp=None
-    
-        
+
+    #reverse a dll
+    def reverse_dll(self):
+        if self.head is None:
+            return
+        cur=self.head
+        pre=None
+        nxt=None
+        while(cur):
+            if pre is None:
+                self.last=cur
+            nxt=cur.next
+            cur.next=pre
+            cur.prev=nxt
+            pre=cur
+            cur=nxt
+        if cur is None:
+            self.head=pre
+            
         
 
 if __name__=='__main__':
@@ -131,26 +148,9 @@ if __name__=='__main__':
     print 
     ll.printList()
     print ' '
-    ll.add_at_first(5)
-    ll.printList()
-    print ' '
-    ll.insert_after(ll.head.next,15)
-    ll.printList()
-    print ' '
-    ll.insert_before(ll.head.next,25)
-    ll.printList()
-    print ' '
-    ll.push(70)
-    ll.printList()
-    print ' '
-    ll.del_head_node()
-    ll.printList()
-    print ' '
-    ll.del_mid_node()
-    ll.printList()
-    print ' '
-    ll.del_last_node()
-    ll.printList()
+    
+    ll.reverse_dll()
+    ll.traverse()
     print ' '
     
 
