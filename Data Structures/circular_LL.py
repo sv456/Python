@@ -55,13 +55,31 @@ class CirLL():
         self.last=new_node
         self.last.next=self.head
 
+    #splitting circular ll into 2 ll
+    def split_cll(self,ll1,ll2):
+        slow_p=self.head
+        fast_p=self.head
+        while(fast_p.next!=self.head and fast_p.next.next!=self.head):
+            slow_p=slow_p.next
+            fast_p=fast_p.next.next
+        if fast_p.next.next==self.head:
+            fast_p=fast_p.next
+        ll1.head=self.head
+        if self.head.next!=self.head:
+            ll2.head=slow_p.next
+        fast_p.next=slow_p.next
+        slow_p.next=self.head
+        
+
 if __name__=='__main__':
     ll=CirLL()
     ll.add_node()
     ll.printList()
     print
-    ll.insert_first(25)
-    ll.printList()
-    ll.insert_last(55)
-    ll.printList()
+    
+    ll1=CirLL()
+    ll2=CirLL()
+    ll.split_cll(ll1,ll2)
+    ll1.printList()
+    ll2.printList()
                    
