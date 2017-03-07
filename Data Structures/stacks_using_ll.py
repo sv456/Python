@@ -49,9 +49,16 @@ class stack():
         if self.head==None:
             return 0
 
+    def top_element(self):
+        if self.head is None:
+            return
+        print 'Top element of stack:',self.head.data
+            
+
 if __name__=='__main__':
     lst=stack()
     lst.push()
     lst.traverse()
     lst.pop()
     lst.traverse()
+    lst.top_element()
