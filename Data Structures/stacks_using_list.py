@@ -1,29 +1,19 @@
-def create_stack():
-    stack=list()
-    return stack
+class Stack():
+    def __init__(self):
+        self.items=[]
 
-def is_empty(lst):
-    if len(lst)==0:
-        return 0
+    def is_empty(self):
+        if len(self.items)==0:
+            return True
+        return False
 
-def push(lst,data):
-    lst.append(data)
+    def push(self,data):
+        self.items.append(data)
 
-def pop(lst):
-    if is_empty(lst)==0:
-        print 'stack is empty'
-        return
-    print lst.pop()
+    def pop(self):
+        return self.items.pop()
 
-if __name__=='__main__':
-    l=create_stack()
-    push(l,2)
-    push(l,3)
-    push(l,4)
-    push(l,5)
-    pop(l)
-    pop(l)
-    pop(l)
-    pop(l)
-    pop(l)    
-    
+    def peek(self):
+        return self.items[(len(self.items)-1)]
+
+
