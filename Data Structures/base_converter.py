@@ -1,12 +1,12 @@
 from stacks_using_list import Stack
 
-def dec_to_bin(num):
+def base_con(num,base):
     s=Stack()
     while(num>0):
-        rem=num%2
+        rem=num%base
         s.push(rem)
-        num//=2
-
+        num//=base
+    
     strin=''
     while s.is_empty() is False:
         strin+=str(s.pop())
@@ -14,7 +14,7 @@ def dec_to_bin(num):
     print strin
     
 
-dec_to_bin(233)
+base_con(26,26)
         
         
     
