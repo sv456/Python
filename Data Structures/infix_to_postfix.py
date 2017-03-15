@@ -4,15 +4,17 @@ def postfix(expr):
     prec={}
     prec['*']=3
     prec['/']=3
+    prec['**']=4
     prec['+']=2
     prec['-']=2
     prec['(']=1
-
-    token=list(expr)
+    ran=range(100)
+    l=" ".join(str(i) for i in ran)
+    token=expr.split()
     check=Stack()
     final_token=list()
     for char in token:
-        if char in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' or char in '0123456789':
+        if char in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' or char in l:
             final_token.append(char)
         elif char=='(':
             check.push(char)
@@ -36,7 +38,7 @@ def postfix(expr):
     return " ".join(final_token)
 
 
-print postfix("A+B*C")
+print postfix('5 * 3 ** ( 4 - 2 )')
     
     
     
